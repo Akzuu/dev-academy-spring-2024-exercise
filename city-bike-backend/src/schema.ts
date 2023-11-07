@@ -3,10 +3,10 @@ import { gql } from 'apollo-server';
 export const typeDefs = gql`
   type Station {
     id: ID!
-    name: String!
-    address: String!
-    coordinate_x: String!
-    coordinate_y: String!
+    name: String
+    address: String
+    x: String
+    y: String
   }
 
   type Query {
