@@ -6,4 +6,5 @@ export const sql = postgres({
   port: 5432,
   user: 'academy',
   hostname: '127.0.0.1',
+  transform: postgres.camel,
 });
