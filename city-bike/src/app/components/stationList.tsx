@@ -11,14 +11,16 @@ export const StationListComponent: React.FC<StationListComponentProps> = ({
 }) => (
   <div>
     <h1>Asemat</h1>
-    {stations.map((station) => (
-      <button
-        id={station.id}
-        key={`station-${station.id}`}
-        onClick={onStationClick}
-      >
-        {station.name}
-      </button>
-    ))}
+    {[...stations]
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((station) => (
+        <button
+          id={station.id}
+          key={`station-${station.id}`}
+          onClick={onStationClick}
+        >
+          {station.name}
+        </button>
+      ))}
   </div>
 );
