@@ -4,6 +4,9 @@ type StationComponentProps = {
   station: EnrichedStation;
 };
 
+/**
+ * Is responsible for showing the station infos
+ */
 export const StationComponent: React.FC<StationComponentProps> = ({
   station,
 }) => (

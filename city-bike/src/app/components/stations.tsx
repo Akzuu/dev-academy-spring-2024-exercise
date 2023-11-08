@@ -16,6 +16,10 @@ const client = new ApolloClient({
   uri: "http://localhost:3001/",
 });
 
+/**
+ * Handles data querying and conditionally rendering the application
+ * components.
+ */
 const Content: React.FC = () => {
   const [selectedStationId, setSelectedStationId] = useState<string>();
   const { data: stationsData } = useQuery<{ stations: Station[] }>(gql`
@@ -80,6 +84,10 @@ const Content: React.FC = () => {
   );
 };
 
+/**
+ * Stations view base component, which also gives access to the
+ * Apollo provider
+ */
 export const Stations = () => (
   <ApolloProvider client={client}>
     <Content />

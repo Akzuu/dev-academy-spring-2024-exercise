@@ -10,6 +10,11 @@ the data through GraphQL API.
 - GraphQL API
 - Postgre.js database driver
 
+Node.js was chosen because it is really familiar for me. I decided to spice things up a little though and instead of using Fastify I decided to give Apollo a chance so that I could try creating a GraphQL API.
+
+I have some small experiences with GraphQL but this exercise gave the perfect opportunity to try creating something with it too. I like the simplicity of it
+and that the API user can easily decide what they want to query. However in the future, I would like to get typescript types straight from the GraphQL schema instead of creating them manually.
+
 ## Running in the local environment
 
 1. Make sure you have the database up and running with the default settings given in the docker-compose by the assignment givers

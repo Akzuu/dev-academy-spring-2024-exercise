@@ -1,3 +1,7 @@
+## Authors comment
+
+The project is split into two folders, `city-bike` for the Next.js frontend and `city-bike-backend` for the Node.js backend. There's a `README.md` inside the folder, which includes instructions on how to run the applications.
+
 # dev-academy-spring-2024-exercise
 
 This is the pre-assignment for Solita Dev Academy Finland January 2024. But if you’re here just purely out of curiosity, feel free to snatch the idea and make your own city bike app just for the fun of it!
@@ -16,20 +20,24 @@ Also, the database is created using dataset that has information about Helsinki 
 - License and information: https://www.avoindata.fi/data/en/dataset/hsl-n-kaupunkipyoraasemat/resource/a23eef3a-cc40-4608-8aa2-c730d17e8902
 
 # The exercise
+
 Create a web application that uses a backend service to fetch the data. Backend can be made with any technology. We at Solita use for example (not in preference order) Java/Kotlin/C#/TypeScript but you are free to choose any other technology as well.
 
-You are provided with Docker setup, with contains a PostgreSQL database with all the necessary data for the exercise. 
+You are provided with Docker setup, with contains a PostgreSQL database with all the necessary data for the exercise.
 
 You can also freely choose the frontend technologies to use. The important part is to give good instructions on how to build and run the project.
 
-Please return the exercise as a link to github repository. 
+Please return the exercise as a link to github repository.
 
 # Functional requirements
+
 ## Station list
+
 - List all stations
 - Link to single station views
 
 ## Single station view
+
 - Station name
 - Station address
 - Total number of journeys starting from the station
@@ -38,6 +46,7 @@ Please return the exercise as a link to github repository.
 - Avarage duration of journeys starting from the station
 
 # Instructions for running the database
+
 1. Install Docker Desktop on your computer (https://docs.docker.com/desktop/)
 2. Clone this repository
 3. On command line under this folder run:
@@ -56,24 +65,27 @@ Please note that running that might take couple of minutes
 Database is running at postgres://localhost:5432/citybike and the database name is citybike. Database comes with user academy (password: academy).
 
 # Database structure
+
 Database consists of two tables: station and journey.
 
 ## Station table
-| Column | Description | Type |
-| ----------- | ----------- | ----------- |
-| id | id, primary key | integer |
-| station_name | Name of the station | character varying(100) *NULL* |
-| station_address | Address of the station | character varying(100) *NULL* |
-| coordinate_x | X coordinate of the station | character varying(100) *NULL* |
-| coordinate_y | Y coordinate of the station | character varying(100) *NULL* |
+
+| Column          | Description                 | Type                          |
+| --------------- | --------------------------- | ----------------------------- |
+| id              | id, primary key             | integer                       |
+| station_name    | Name of the station         | character varying(100) _NULL_ |
+| station_address | Address of the station      | character varying(100) _NULL_ |
+| coordinate_x    | X coordinate of the station | character varying(100) _NULL_ |
+| coordinate_y    | Y coordinate of the station | character varying(100) _NULL_ |
 
 ## Journey table
-| Column | Description | Type |
-| ----------- | ----------- | ----------- |
-| id | id, primary key | integer |
-| departure_date_time | Journey start timestamp | timestamp *NULL* |
-| return_date_time | Journey end timestamp | timestamp *NULL* |
-| departure_station_id | Journey start station | integer, references to station(id) |
-| return_station_id | Journey end station | integer, references to station(id) |
-| distance | Distance of journey in meters | integer *NULL* |
-| duration | Duration of journey in seconds | integer *NULL* |
+
+| Column               | Description                    | Type                               |
+| -------------------- | ------------------------------ | ---------------------------------- |
+| id                   | id, primary key                | integer                            |
+| departure_date_time  | Journey start timestamp        | timestamp _NULL_                   |
+| return_date_time     | Journey end timestamp          | timestamp _NULL_                   |
+| departure_station_id | Journey start station          | integer, references to station(id) |
+| return_station_id    | Journey end station            | integer, references to station(id) |
+| distance             | Distance of journey in meters  | integer _NULL_                     |
+| duration             | Duration of journey in seconds | integer _NULL_                     |
