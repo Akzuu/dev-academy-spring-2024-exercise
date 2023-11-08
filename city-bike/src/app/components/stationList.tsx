@@ -11,16 +11,18 @@ export const StationListComponent: React.FC<StationListComponentProps> = ({
 }) => (
   <div>
     <h1>Asemat</h1>
-    {[...stations]
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .map((station) => (
-        <button
-          id={station.id}
-          key={`station-${station.id}`}
-          onClick={onStationClick}
-        >
-          {station.name}
-        </button>
-      ))}
+    <div className="flex flex-col items-start overflow-auto">
+      {[...stations]
+        .sort((a, b) => a.name.localeCompare(b.name, "fi"))
+        .map((station) => (
+          <button
+            id={station.id}
+            key={`station-${station.id}`}
+            onClick={onStationClick}
+          >
+            {station.name}
+          </button>
+        ))}
+    </div>
   </div>
 );

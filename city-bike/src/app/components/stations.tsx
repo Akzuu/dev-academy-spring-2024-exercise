@@ -62,17 +62,21 @@ const Content: React.FC = () => {
   );
 
   return (
-    <>
-      {stationsData && (
-        <StationListComponent
-          stations={stationsData.stations}
-          onStationClick={onStationClick}
-        />
-      )}
-      {selectedStationData && (
-        <StationComponent station={selectedStationData.station} />
-      )}
-    </>
+    <div className="flex flex-row justify-between w-full">
+      <div className="basis-2/3">
+        {stationsData && (
+          <StationListComponent
+            stations={stationsData.stations}
+            onStationClick={onStationClick}
+          />
+        )}
+      </div>
+      <div className="basis-1/3">
+        {selectedStationData && (
+          <StationComponent station={selectedStationData.station} />
+        )}
+      </div>
+    </div>
   );
 };
 

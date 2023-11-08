@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+h1 {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: larger;
+}

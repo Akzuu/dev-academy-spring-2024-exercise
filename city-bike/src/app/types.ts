@@ -7,8 +7,8 @@ export type Station = {
 };
 
 export type EnrichedStation = Station & {
-  avgDepartureDistance: number;
-  avgTripDuration: number;
-  totalArrivals: number;
-  totalDepartures: number;
+  avgDepartureDistance?: number;
+  avgTripDuration?: string;
+  totalArrivals?: number;
+  totalDepartures?: number;
 };
