@@ -9,10 +9,10 @@ export type Station = {
 };
 
 export type EnrichedStation = Station & {
-  avgStartingJourneysDistance: number;
-  avgEndingJourneysDistance: number;
-  totalStartingJourneys: number;
-  totalEndingJourneys: number;
+  avgDepartureDistance: number;
+  avgTripDuration: number;
+  totalArrivals: number;
+  totalDepartures: number;
 };
 
 const STATION_COLUMNS = [
