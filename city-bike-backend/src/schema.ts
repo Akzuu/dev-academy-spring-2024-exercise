@@ -1,5 +1,9 @@
 import { gql } from 'apollo-server';
 
+/**
+ * Type definitions for graphql. Would be neat to generate typescript
+ * types from these too. There probably is package for that...
+ */
 export const typeDefs = gql`
   scalar Time
 

@@ -23,25 +23,31 @@ const STATION_COLUMNS = [
   's.coordinate_y',
 ];
 
+/**
+ * Queries the database and returns all the stations available.
+ */
 export const getStations = async (): Promise<Station[]> => sql<Station[]>`
   SELECT
     ${sql(STATION_COLUMNS)}
   FROM station s`;
 
-export const getStation = async (id: string): Promise<Station> => {
-  const result = await sql<Station[]>`
-    SELECT
-      ${sql(STATION_COLUMNS)}
-    FROM station s
-    WHERE s.id = ${id}
-  `;
-
-  return result[0];
-};
-
+/**
+ * Queries so called enriched station (name pending) which basically
+ * is a station with some extra information about departures and arrivals.
+ *
+ * The query is constructed with two CTEs which query the journey table and
+ * calculate the necessary averages and totals. I decided to use this approach
+ * instead of doing the calculations in node.js runtime since in my experience
+ * letting the SQL server do the heavy lifting here helps with the overall
+ * performance.
+ */
 export const getEnrichedStation = async (
-  id: string,
+  stationId: string,
 ): Promise<EnrichedStation> => {
+  /** Notice that we can use template strings inside the query
+   * without worrying about SQL injections.
+   * https://github.com/porsager/postgres#query-parameters
+   */
   const result = await sql<EnrichedStation[]>`
     WITH arrivals AS (
       SELECT
@@ -69,7 +75,7 @@ export const getEnrichedStation = async (
     FROM station s
     JOIN arrivals a ON a.return_station_id = s.id
     JOIN departures d ON d.departure_station_id = s.id
-    WHERE s.id = ${id}
+    WHERE s.id = ${stationId}
   `;
 
   return result[0];

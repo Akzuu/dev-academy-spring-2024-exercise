@@ -12,6 +12,6 @@ const server = new ApolloServer({
 
 module.exports = (async () => {
   console.log('Starting server...');
-  await server.listen({ port: PORT });
-  console.log('Server running');
+  const info = await server.listen({ port: PORT });
+  console.log(`Server running at ${info.url}`);
 })();

@@ -1,5 +1,9 @@
 import { getEnrichedStation, getStations } from './database/stationQueries';
 
+/**
+ * Graphql resolvers. In a larger program, these should be split
+ * into smaller chunks
+ */
 export const resolvers = {
   Station: {
     id: (parent) => parent.id,
@@ -23,8 +27,9 @@ export const resolvers = {
 
   Query: {
     station: async (_, args) => {
-      // TODO 404 error
       const station = await getEnrichedStation(args.id);
+
+      // It would be great to offer 404 error for this endpoint
       return station;
     },
 
